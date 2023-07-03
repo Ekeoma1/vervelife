@@ -4,10 +4,10 @@ import Swiper from 'react-native-swiper';
 import ChevronLeft from '../assets/chevron-left.svg';
 import data from './carouselData';
 
-const GetStartedScreen = () => {
+const GetStartedScreen = ({navigation}) => {
   return (
     <View style={{flex: 1, position: 'relative'}}>
-      <Swiper autoplay={true} autoPlayInterval={5000}>
+      <Swiper autoplay={true} autoPlayInterval={5000} paginationStyle={{position:'absolute', bottom: 85}}>
         {data.map((info, index) => {
           return (
             <View key={index}>
@@ -21,7 +21,7 @@ const GetStartedScreen = () => {
                   <Text style={styles.content}>{info.content}</Text>
                 </View>
 
-                <View style={styles.button}>
+                <View onPress={()=> navigation.navigate('Login')} style={styles.button}>
                   <Text style={styles.btnText}>Get started</Text>
                   <ChevronLeft />
                 </View>
